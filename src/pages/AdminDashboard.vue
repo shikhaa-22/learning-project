@@ -4,6 +4,10 @@
       <div class="row q-col-gutter-lg items-stretch">
         <div class="col-12 col-lg-5">
           <q-card class="glass-card welcome-card q-pa-lg">
+            <div class="row justify-end q-mb-md">
+              <q-btn flat color="primary" icon="logout" label="Logout" @click="handleLogout" />
+            </div>
+
             <div class="text-overline text-primary text-weight-medium">Admin workspace</div>
             <div class="text-h5 text-weight-bold q-mt-sm">
               Welcome {{ store.currentUser?.fullName ?? 'Admin' }}
@@ -57,7 +61,6 @@
                   <div class="text-overline text-primary">Saved users</div>
                   <div class="text-h5 text-weight-bold">{{ printedTitle }}</div>
                 </div>
-                <q-btn flat color="primary" icon="arrow_back" label="Back" @click="printedList = null; printedTitle = ''" />
               </div>
 
               <div class="preview-grid">
@@ -104,7 +107,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
+import { onMounted, computed, reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore, type User } from '../stores/userStore'
 import UserBasicForm from '../components/UserBasicForm.vue'
 import UserRoleForm from '../components/UserRoleForm.vue'
@@ -132,8 +136,20 @@ const formData = reactive<AdminFormData>({
 const printedList = ref<User[] | null>(null)
 const printedTitle = ref('')
 const store = useUserStore()
+const router = useRouter()
+
+onMounted(() => {
+  if (!store.currentUser) {
+    void router.replace('/')
+  }
+})
 
 const stepProgress = computed(() => currentStep.value / 3)
+
+async function handleLogout() {
+  store.logout()
+  await router.replace('/')
+}
 
 function handleBasicSubmit(data: { username: string; fullName: string; email: string; phone: string }) {
   formData.username = data.username

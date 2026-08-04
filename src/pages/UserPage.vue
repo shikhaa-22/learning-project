@@ -2,6 +2,10 @@
   <q-page class="user-page flex flex-center">
     <div class="user-shell">
       <q-card class="glass-card section-card q-pa-lg">
+        <div class="row justify-end q-mb-md">
+          <q-btn flat color="primary" icon="logout" label="Logout" @click="handleLogout" />
+        </div>
+
         <div class="row q-col-gutter-lg items-center">
           <div class="col-12 col-md-4">
             <div class="stat-card text-center">
@@ -52,7 +56,21 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '../stores/userStore'
 
 const store = useUserStore()
+const router = useRouter()
+
+onMounted(() => {
+  if (!store.currentUser) {
+    void router.replace('/')
+  }
+})
+
+async function handleLogout() {
+  store.logout()
+  await router.replace('/')
+}
 </script>

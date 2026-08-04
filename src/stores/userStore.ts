@@ -51,6 +51,10 @@ export const useUserStore = defineStore('userStore', {
       this.currentUser = user
     },
 
+    logout(): void {
+      this.currentUser = null
+    },
+
     addUser(user: User): void {
       this.users.push(user)
       try {
