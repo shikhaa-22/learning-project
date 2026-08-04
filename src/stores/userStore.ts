@@ -64,6 +64,20 @@ export const useUserStore = defineStore('userStore', {
       }
     },
 
+    deleteUser(username: string): void {
+      this.users = this.users.filter(user => user.username !== username)
+
+      if (this.currentUser?.username === username) {
+        this.currentUser = null
+      }
+
+      try {
+        localStorage.setItem('users', JSON.stringify(this.users))
+      } catch {
+        // ignore
+      }
+    },
+
     resetUsers(): void {
       this.users = initialUsers.slice()
       this.currentUser = null

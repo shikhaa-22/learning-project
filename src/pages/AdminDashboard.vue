@@ -90,6 +90,17 @@
                   >
                     ID: {{ u.userId }}
                   </div>
+
+                  <div class="q-mt-md row justify-end">
+                    <q-btn
+                      flat
+                      dense
+                      color="negative"
+                      icon="delete"
+                      label="Delete"
+                      @click="handleDeleteUser(u.username, u.designation)"
+                    />
+                  </div>
                 </q-card>
               </div>
             </template>
@@ -171,12 +182,22 @@ function handleRoleSubmit(data: { designation: 'admin' | 'user'; userId?: number
 }
 
 function handleCreated(createdUser: User) {
-  if (createdUser.designation === 'admin') {
+  refreshPrintedList(createdUser.designation)
+}
+
+function handleDeleteUser(username: string, designation: 'admin' | 'user') {
+  store.deleteUser(username)
+  refreshPrintedList(designation)
+}
+
+function refreshPrintedList(designation: 'admin' | 'user') {
+  if (designation === 'admin') {
     printedTitle.value = 'Admins'
-    printedList.value = store.users.filter(u => u.designation === 'admin')
-  } else {
-    printedTitle.value = 'Users'
-    printedList.value = store.users.filter(u => u.designation === 'user')
+    printedList.value = store.users.filter(user => user.designation === 'admin')
+    return
   }
+
+  printedTitle.value = 'Users'
+  printedList.value = store.users.filter(user => user.designation === 'user')
 }
 </script>
