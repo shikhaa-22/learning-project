@@ -1,15 +1,41 @@
 <template>
-  <div class="q-pa-md">
-    <h4>Preview New User</h4>
+  <div class="q-pa-none">
+    <div class="text-overline text-primary text-weight-medium">Step 3 of 3</div>
+    <div class="text-h5 text-weight-bold q-mb-xs">Preview new user</div>
+    <div class="soft-muted q-mb-lg">Review the details before saving the account.</div>
 
-    <div class="q-mb-sm">Username: {{ props.user.username }}</div>
-    <div class="q-mb-sm">Full Name: {{ props.user.fullName }}</div>
-    <div class="q-mb-sm">Email: {{ props.user.email }}</div>
-    <div class="q-mb-sm">Phone: {{ props.user.phone }}</div>
-    <div class="q-mb-sm">Designation: {{ props.user.designation }}</div>
-    <div v-if="props.user.userId !== undefined" class="q-mb-sm">User Id: {{ props.user.userId }}</div>
+    <div class="preview-grid q-mb-lg">
+      <div class="preview-field preview-field-small">
+        <div class="text-caption soft-muted">Username</div>
+        <div class="text-body1 text-weight-medium">@{{ props.user.username }}</div>
+      </div>
+      <div class="preview-field preview-field-small">
+        <div class="text-caption soft-muted">Full name</div>
+        <div class="text-body1 text-weight-medium">{{ props.user.fullName }}</div>
+      </div>
+      <div class="preview-field preview-field-small">
+        <div class="text-caption soft-muted">Email</div>
+        <div class="text-body1 text-weight-medium">{{ props.user.email }}</div>
+      </div>
+      <div class="preview-field preview-field-small">
+        <div class="text-caption soft-muted">Phone</div>
+        <div class="text-body1 text-weight-medium">{{ props.user.phone }}</div>
+      </div>
+      <div class="preview-field preview-field-small">
+        <div class="text-caption soft-muted">Designation</div>
+        <div class="text-body1 text-weight-medium text-capitalize">{{ props.user.designation }}</div>
+      </div>
+      <div v-if="props.user.userId !== undefined" class="preview-field preview-field-small">
+        <div class="text-caption soft-muted">User Id</div>
+        <div class="text-body1 text-weight-medium">{{ props.user.userId }}</div>
+      </div>
+    </div>
 
-    <q-btn label="Create New User" color="primary" @click="createUser" />
+    <q-banner rounded class="soft-panel q-mb-lg">
+      If the details look right, save the new user.
+    </q-banner>
+
+    <q-btn label="Create New User" color="primary" unelevated class="full-width" @click="createUser" />
   </div>
 </template>
 

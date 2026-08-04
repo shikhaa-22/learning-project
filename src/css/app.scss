@@ -1,1 +1,165 @@
-// app global css
+html,
+body,
+#q-app {
+	min-height: 100%;
+}
+
+body {
+	font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+	color: #1e293b;
+	background: #f8fafc;
+}
+
+::selection {
+	background: rgba(37, 99, 235, 0.12);
+}
+
+.glass-card {
+	border: 1px solid rgba(148, 163, 184, 0.14);
+	border-radius: 16px;
+	background: #ffffff;
+	box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.section-card {
+	border-radius: 16px;
+	border: 1px solid rgba(148, 163, 184, 0.14);
+	background: #ffffff;
+	box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.auth-page,
+.dashboard-page,
+.user-page {
+	min-height: calc(100vh - 48px);
+}
+
+.auth-page,
+.dashboard-page,
+.user-page {
+	padding: 24px;
+}
+
+.auth-shell,
+.dashboard-shell,
+.user-shell {
+	width: min(1120px, 100%);
+	margin: 0 auto;
+}
+
+.auth-card {
+	overflow: hidden;
+}
+
+.auth-hero {
+	padding: 32px;
+	color: #1e293b;
+	background: #f1f5f9;
+}
+
+.auth-form-panel {
+	padding: 32px;
+}
+
+.auth-credentials {
+	color: #475569;
+}
+
+.soft-panel {
+	border-radius: 14px;
+	border: 1px solid rgba(148, 163, 184, 0.14);
+	background: #f8fafc;
+}
+
+.summary-card,
+.step-card,
+.welcome-card,
+.preview-card {
+	height: 100%;
+}
+
+.soft-muted {
+	color: #64748b;
+}
+
+.detail-chip {
+	background: rgba(37, 99, 235, 0.06);
+	color: #1d4ed8;
+}
+
+.preview-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+}
+
+.preview-field {
+	padding: 18px;
+	border-radius: 16px;
+	background: #f8fafc;
+	border: 1px solid rgba(148, 163, 184, 0.12);
+	box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+
+	min-height: 180px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	word-break: break-word;
+	overflow-wrap: anywhere;
+}
+
+.preview-field-small {
+  min-height: 10px; 
+}
+
+.step-pill {
+	border-radius: 999px;
+	padding: 8px 14px;
+	background: rgba(148, 163, 184, 0.08);
+	color: #475569;
+}
+
+.step-pill--active {
+	background: rgba(37, 99, 235, 0.08);
+	color: #1d4ed8;
+}
+
+.stat-card {
+	padding: 16px;
+	border-radius: 14px;
+	background: #f8fafc;
+	border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.hero-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.92);
+	color: #334155;
+	border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+@media (max-width: 1023px) {
+	.auth-hero,
+	.auth-form-panel {
+		padding: 24px;
+	}
+}
+
+@media (max-width: 599px) {
+	.auth-page,
+	.dashboard-page,
+	.user-page {
+		padding: 14px;
+	}
+
+	.auth-hero,
+	.auth-form-panel {
+		padding: 20px;
+	}
+}

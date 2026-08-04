@@ -1,57 +1,57 @@
 <template>
-  <div class="q-pa-md">
+  <div class="q-pa-none">
+    <div class="text-overline text-primary text-weight-medium">Step 1 of 3</div>
+    <div class="text-h5 text-weight-bold q-mb-xs">User basic details</div>
+    <div class="soft-muted q-mb-lg">Start with the account information that identifies the user.</div>
 
-    <h4>User Basic Details</h4>
-
-    <q-form ref="formRef">
+    <q-form ref="formRef" class="q-gutter-md">
       <q-input
         v-model="form.username"
         label="Username"
         outlined
+        stack-label
+        color="primary"
+        placeholder="Choose a unique username"
         :rules="[val => !!val || 'Username required']"
       />
-
-      <br>
 
       <q-input
         v-model="form.fullName"
         label="Full Name"
         outlined
+        stack-label
+        color="primary"
+        placeholder="Enter the person's full name"
         :rules="[val => !!val || 'Full name required']"
       />
-
-      <br>
 
       <q-input
         v-model="form.email"
         label="Email"
         outlined
+        stack-label
+        color="primary"
+        placeholder="name@example.com"
         :rules="[
           val => !!val || 'Email required',
           val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val) || 'Invalid email'
         ]"
       />
 
-      <br>
-
       <q-input
         v-model="form.phone"
         label="Phone Number"
         outlined
+        stack-label
+        color="primary"
+        placeholder="10 digit number"
         :rules="[
           val => /^\d{10}$/.test(val) || 'Enter 10 digit phone number'
         ]"
       />
 
-      <br>
-
-      <q-btn
-        label="Next"
-        color="primary"
-        @click="next"
-      />
+      <q-btn label="Continue" color="primary" unelevated class="full-width" @click="next" />
     </q-form>
-
   </div>
 </template>
 

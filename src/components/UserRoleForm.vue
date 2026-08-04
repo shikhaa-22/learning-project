@@ -1,40 +1,39 @@
 <template>
-  <div class="q-pa-md">
+  <div class="q-pa-none">
+    <div class="text-overline text-primary text-weight-medium">Step 2 of 3</div>
+    <div class="text-h5 text-weight-bold q-mb-xs">User role details</div>
+    <div class="soft-muted q-mb-lg">
+      Choose whether this account is an admin or a regular user.
+    </div>
 
-    <h4>User Role Details</h4>
-
-    <q-form ref="formRef">
+    <q-form ref="formRef" class="q-gutter-md">
       <q-select
         v-model="form.designation"
         label="Designation"
         outlined
+        stack-label
+        color="primary"
         :options="['admin', 'user']"
         :rules="[val => !!val || 'Designation required']"
       />
-
-      <br>
 
       <q-input
         v-if="form.designation === 'user'"
         v-model="form.userId"
         label="User Id"
         outlined
+        stack-label
+        color="primary"
         type="number"
+        hint="Required for regular users"
         :rules="[
           val => !!val || 'User Id required',
           val => /^\d+$/.test(String(val)) || 'User Id must be integer'
         ]"
       />
 
-      <br>
-
-      <q-btn
-        label="Done"
-        color="primary"
-        @click="done"
-      />
+      <q-btn label="Continue" color="primary" unelevated class="full-width" @click="done" />
     </q-form>
-
   </div>
 </template>
 
