@@ -18,7 +18,7 @@
             
             <div class="row q-col-gutter-md q-mt-md">
               <div class="col-12 col-sm-4">
-                <div class="stat-card">
+                <div class="stat-card admin-stat-card">
                   <div class="text-caption soft-muted">Step</div>
                   <div class="text-h5 text-weight-bold">{{ currentStep }}/3</div>
                 </div>

@@ -32,7 +32,9 @@
         ]"
       />
 
-      <q-btn label="Continue" color="primary" unelevated class="full-width" @click="done" />
+    <div class="col-12"><q-btn label="Continue" color="primary" style="border-radius: 12px;" class="full-width" @click="done" /></div>  
+      
+    
     </q-form>
   </div>
 </template>

@@ -35,7 +35,9 @@
       If the details look right, save the new user.
     </q-banner>
 
-    <q-btn label="Create New User" color="primary" unelevated class="full-width" @click="createUser" />
+    <div class="col-12">
+      <q-btn label="Create New User" color="primary" style="border-radius: 12px;" class="full-width" @click="createUser" />
+    </div>
   </div>
 </template>
 

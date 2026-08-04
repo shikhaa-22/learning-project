@@ -64,15 +64,16 @@
                 prefix="*"
               />
 
-              
-              <q-btn
-                class="full-width"
-                color="primary"
-                unelevated
-                size="lg"
-                label="Sign in"
-                type="submit"
-              />
+              <div class="col-12">
+                <q-btn
+                  class="full-width"
+                  color="primary"
+                  style="border-radius: 12px;"
+                  size="lg"
+                  label="Sign in"
+                  type="submit"
+                />
+              </div>
             </q-form>
           </div>
         </div>

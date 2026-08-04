@@ -19,6 +19,7 @@ body {
 	border-radius: 16px;
 	background: #ffffff;
 	box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    
 }
 
 .section-card {
@@ -26,6 +27,7 @@ body {
 	border: 1px solid rgba(148, 163, 184, 0.14);
 	background: #ffffff;
 	box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    
 }
 
 .auth-page,
@@ -111,9 +113,11 @@ body {
 }
 
 .preview-field-small {
-  min-height: 10px; 
+  min-height: 10px;
 }
-
+.preview-field-smaller {
+  min-height: 8px; 
+}
 .step-pill {
 	border-radius: 999px;
 	padding: 8px 14px;
@@ -131,8 +135,16 @@ body {
 	border-radius: 14px;
 	background: #f8fafc;
 	border: 1px solid rgba(148, 163, 184, 0.12);
+    height: 300px;
 }
+.admin-stat-card {
+    padding: 16px;
+	border-radius: 14px;
+	background: #f8fafc;
+	border: 1px solid rgba(148, 163, 184, 0.12);
+    height: 100px;
 
+}
 .hero-badge {
 	display: inline-flex;
 	align-items: center;

@@ -50,8 +50,11 @@
         ]"
       />
 
-      <q-btn label="Continue" color="primary" unelevated class="full-width" @click="next" />
-    </q-form>
+      <div class="col-12">
+        <q-btn label="Continue" color="primary" class="full-width" style="border-radius: 12px;" @click="next" />
+      </div>
+      </q-form>
+  
   </div>
 </template>
 
