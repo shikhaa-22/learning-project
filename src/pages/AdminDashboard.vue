@@ -132,6 +132,7 @@ interface AdminFormData {
   fullName: string
   email: string
   phone: string
+  password: string
   designation: 'admin' | 'user'
   userId?: number
 }
@@ -141,6 +142,7 @@ const formData = reactive<AdminFormData>({
   fullName: '',
   email: '',
   phone: '',
+  password: '',
   designation: 'user'
 })
 
@@ -162,11 +164,12 @@ async function handleLogout() {
   await router.replace('/')
 }
 
-function handleBasicSubmit(data: { username: string; fullName: string; email: string; phone: string }) {
+function handleBasicSubmit(data: { username: string; fullName: string; email: string; phone: string; password: string }) {
   formData.username = data.username
   formData.fullName = data.fullName
   formData.email = data.email
   formData.phone = data.phone
+  formData.password = data.password
   currentStep.value = 2
 }
 

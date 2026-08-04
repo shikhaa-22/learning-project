@@ -22,6 +22,10 @@
         <div class="text-body1 text-weight-medium">{{ props.user.phone }}</div>
       </div>
       <div class="preview-field preview-field-small">
+        <div class="text-caption soft-muted">Password</div>
+        <div class="text-body1 text-weight-medium">{{ props.user.password }}</div>
+      </div>
+      <div class="preview-field preview-field-small">
         <div class="text-caption soft-muted">Designation</div>
         <div class="text-body1 text-weight-medium text-capitalize">{{ props.user.designation }}</div>
       </div>
@@ -54,6 +58,7 @@ const props = defineProps<{
     fullName: string
     email: string
     phone: string
+    password: string
     designation: 'admin' | 'user'
     userId?: number
   }
@@ -67,6 +72,7 @@ function createUser() {
     fullName: props.user.fullName,
     email: props.user.email,
     phone: props.user.phone,
+    password: props.user.password,
     designation: props.user.designation
   }
 

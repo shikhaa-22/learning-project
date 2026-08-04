@@ -2,7 +2,7 @@
   <div class="q-pa-none">
     <div class="text-overline text-primary text-weight-medium">Step 1 of 3</div>
     <div class="text-h5 text-weight-bold q-mb-xs">User basic details</div>
-    <div class="soft-muted q-mb-lg">Start with the account information that identifies the user.</div>
+    <div class="soft-muted q-mb-lg">Start with the basic information.</div>
 
     <q-form ref="formRef" class="q-gutter-md">
       <q-input
@@ -50,6 +50,17 @@
         ]"
       />
 
+      <q-input
+        v-model="form.password"
+        label="Password"
+        type="password"
+        outlined
+        stack-label
+        color="primary"
+        placeholder="Set a login password"
+        :rules="[val => !!val || 'Password required']"
+      />
+
       <div class="col-12">
         <q-btn label="Continue" color="primary" class="full-width" style="border-radius: 12px;" @click="next" />
       </div>
@@ -73,7 +84,8 @@ const form = reactive({
   username: '',
   fullName: '',
   email: '',
-  phone: ''
+  phone: '',
+  password: ''
 })
 
 type FormApi = { validate?: () => boolean | Promise<boolean> }
