@@ -175,7 +175,6 @@ function handleRoleSubmit(data: { designation: 'admin' | 'user'; userId?: number
   if (typeof data.userId === 'number' && Number.isInteger(data.userId)) {
     formData.userId = data.userId
   } else {
-    // remove optional property when undefined or invalid to match prop expectations
     delete (formData as Partial<AdminFormData>).userId
   }
   currentStep.value = 3

@@ -51,6 +51,14 @@ export const useUserStore = defineStore('userStore', {
       this.currentUser = user
     },
 
+    getNextUserId(): number {
+      const highestUserId = this.users.reduce((highest, user) => {
+        return typeof user.userId === 'number' && user.userId > highest ? user.userId : highest
+      }, 100)
+
+      return highestUserId + 1
+    },
+
     logout(): void {
       this.currentUser = null
     },
